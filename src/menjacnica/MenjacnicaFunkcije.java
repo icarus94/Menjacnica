@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import menjacnica.specinterface.InterfaceMenjacnica;
 
 public class MenjacnicaFunkcije implements InterfaceMenjacnica {
+	
+	public LinkedList<Valuta> valutaLista = new LinkedList<Valuta>();
 
 	LinkedList<Valuta> valuta = new LinkedList<>();
 	
@@ -13,38 +15,40 @@ public class MenjacnicaFunkcije implements InterfaceMenjacnica {
 	public void dodajKurs(double prodajni, double kupovni,
 			GregorianCalendar dan, String naziv, String skraceniNazivValute) {
 		// TODO Auto-generated method stub
-		Valuta v = new Valuta();
-		v.setSrednjaValuta((kupovni/2)+(prodajni/2));
-		v.setDatum(dan);
-		v.setProdajnaValuta(prodajni);
-		v.setKracinazivValute(skraceniNazivValute);
-		v.setKupovnaValuta(kupovni);
-		v.setNazivValute(naziv);
-		valuta.addFirst(v);
+
+	
+		Valuta nova = new Valuta();
+		nova.setDatum(dan);
+		nova.setKracinazivValute(skraceniNazivValute);
+		nova.setNazivValute(naziv);
+		nova.setKupovnaValuta(kupovni);
+		nova.setProdajnaValuta(prodajni);
+		nova.setSrednjaValuta((kupovni+prodajni)/2);
+		valutaLista.addLast(nova);
+
 	}
 
 	@Override
 	public void brisanjeKursa(GregorianCalendar dan, String skraceniNazivValute) {
 		// TODO Auto-generated method stub
-		Valuta v = new Valuta();
-		v.setDatum(dan);
-		v.setKracinazivValute(skraceniNazivValute);
-		for(int i=0;i<valuta.size();i++){
-			if(valuta.get(i).equals(v))
-				valuta.remove(i);
+
+		for (int i = 0; i < valutaLista.size(); i++){
+			if(valutaLista.get(i).getDatum().equals(dan) && valutaLista.get(i).getKracinazivValute().equals(skraceniNazivValute)){
+				valutaLista.remove(i);
+				return;
+			}
 		}
 	}
 
 	@Override
 	public Valuta pronadjiKurs(GregorianCalendar dan, String skraceniNazivValute) {
 		// TODO Auto-generated method stub
-		Valuta v = new Valuta();
-		v.setDatum(dan);
-		v.setKracinazivValute(skraceniNazivValute);
-		for(int i=0;i<valuta.size();i++){
-			if(valuta.get(i).equals(v))
-				return valuta.get(i);
+
+		for (int i = 0; i < valutaLista.size(); i++){
+			if(valutaLista.get(i).getDatum().equals(dan) && valutaLista.get(i).getKracinazivValute().equals(skraceniNazivValute))
+				return valutaLista.get(i);
 		}
+		System.out.println("nije pronadjeno");
 		return null;
 	}
 	
