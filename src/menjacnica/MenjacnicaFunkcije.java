@@ -48,7 +48,7 @@ public class MenjacnicaFunkcije implements InterfaceMenjacnica {
 			if(valutaLista.get(i).getDatum().equals(dan) && valutaLista.get(i).getKracinazivValute().equals(skraceniNazivValute))
 				return valutaLista.get(i);
 		}
-		System.out.println("nije pronadjeno");
+		System.out.println("Nije pronadjeno");
 		return null;
 	}
 	

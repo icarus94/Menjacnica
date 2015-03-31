@@ -29,7 +29,7 @@ public class Valuta {
 	}
 	public void setKupovnaValuta(double kupovnaValuta) {
 		if (kupovnaValuta <= 0)
-			throw new RuntimeException("Pogresno unet");
+			throw new RuntimeException("Pogresno uneta valuta");
 		this.kupovnaValuta = kupovnaValuta;
 	}
 	public double getSrednjaValuta() {
@@ -37,7 +37,7 @@ public class Valuta {
 	}
 	public void setSrednjaValuta(double srednjaValuta) {
 		if (srednjaValuta <= 0)
-			throw new RuntimeException("Pogresno unet");
+			throw new RuntimeException("Pogresno uneta valuta");
 		this.srednjaValuta = srednjaValuta;
 	}
 	public double getProdajnaValuta() {
@@ -45,7 +45,7 @@ public class Valuta {
 	}
 	public void setProdajnaValuta(double prodajnaValuta) {
 		if (prodajnaValuta <= 0)
-			throw new RuntimeException("Pogresno unet");
+			throw new RuntimeException("Pogresno uneta valuta");
 		this.prodajnaValuta = prodajnaValuta;
 	}
 	public GregorianCalendar getDatum() {
