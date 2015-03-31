@@ -45,4 +45,29 @@ public class Valuta {
 	}
 	
 	
+	
+	@Override
+	public boolean equals(Object obj) { //kraciNaziv i datum su jedinstveni
+		// TODO Auto-generated method stub
+		if (!(obj instanceof Valuta))
+			return false;
+		Valuta val = (Valuta) obj;
+		if(val.getDatum().equals(this.datum) && val.getKracinazivValute().equals(this.kracinazivValute))
+			return true;
+			
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Valuta/val \t"+nazivValute+"/"+kracinazivValute+"\t Datum"+datum+"kupovna/srednja/prodajna Valuta \t"+kupovnaValuta+"/"+srednjaValuta+"/"+
+				prodajnaValuta+"\n";
+	}
+	
+	
 }
