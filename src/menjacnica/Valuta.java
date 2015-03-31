@@ -51,10 +51,10 @@ public class Valuta {
 	public GregorianCalendar getDatum() {
 		return datum;
 	}
-	public void setDatum(GregorianCalendar datum) throws Exception {
+	public void setDatum(GregorianCalendar datum)  {
 		GregorianCalendar danas = new GregorianCalendar();
 		if(datum.after(danas))
-			throw new Exception("Ne moze buduci kurs biti unet,samo trenutni ili prosli");
+			throw new RuntimeException("Ne moze buduci kurs biti unet,samo trenutni ili prosli");
 		this.datum = datum;
 	}
 	
